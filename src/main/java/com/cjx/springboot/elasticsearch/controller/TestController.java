@@ -49,7 +49,7 @@ public class TestController {
 	 */
 	@RequestMapping("/add")
 	public void testSaveArticleIndex() {
-		logger.info("*********add start*********");
+		logger.info("add start...");
 		Author author = new Author();
 		author.setId(1L);
 		author.setName("tianshouzhi");
@@ -71,7 +71,7 @@ public class TestController {
 		article.setClickCount(1L);
 
 		articleSearchRepository.save(article);
-		logger.info("*********add end*********");
+		logger.info("add end...");
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class TestController {
 	 */
 	@RequestMapping("/query")
 	public void testSearch() {
-		logger.info("*********query start*********");
+		logger.info("query start...");
 		String queryString = "springboot";// 搜索关键字
 		QueryStringQueryBuilder builder = new QueryStringQueryBuilder(queryString);
 		Iterable<Article> searchResult = articleSearchRepository.search(builder);
@@ -87,6 +87,6 @@ public class TestController {
 		while (iterator.hasNext()) {
 			logger.info(iterator.next().toString());
 		}
-		logger.info("*********query start*********");
+		logger.info("query end...");
 	}
 }
